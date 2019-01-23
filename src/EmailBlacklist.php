@@ -1,5 +1,7 @@
 <?php
 
+namespace Andrewlynx\EmailBlacklist;
+
 /**
  * Description of EmailBlacklist
  *

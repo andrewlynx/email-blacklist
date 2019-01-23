@@ -12,5 +12,17 @@
             "email": "andrew.melnik.f@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "autoload": {
+        "psr-4": {
+            "Andrewlynx\\EmailBlacklist\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "EmailBlacklist": "Andrewlynx\\EmailBlacklist\\EmailBlacklist"
+            }
+        }
+    }
 }

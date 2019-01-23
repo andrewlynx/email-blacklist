@@ -1,6 +1,6 @@
 <?php
 
-namespace Andrewlynx\EmailBlacklist;
+namespace Andrewlynx\EmailBlacklist\Providers;
 
 use Andrewlynx\EmailBlacklist\EmailBlacklist;
 use Illuminate\Support\ServiceProvider;
@@ -10,6 +10,19 @@ use Illuminate\Support\ServiceProvider;
  *
  * @author andrew
  */
-class EmailBlacklistServiceProvider {
-    //put your code here
+class EmailBlacklistServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        
+    }
+    
+    public function register()
+    {
+        $this->app->bind(
+            'Andrewlynx\EmailBlacklist\EmailBlacklist', function ($app) {
+                return new EmailBlacklist();
+            }
+        );
+    }
 }
