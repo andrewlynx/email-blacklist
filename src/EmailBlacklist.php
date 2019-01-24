@@ -9,5 +9,33 @@ namespace Andrewlynx\EmailBlacklist;
  */
 class EmailBlacklist
 {
-    //put your code here
+    public function add(string $email)
+    {
+        return;
+    }
+
+    public function remove(string $email)
+    {
+        return;
+    }
+
+    public function all()
+    {
+        return;
+    }
+
+    public function check(string $email)
+    {
+        return;
+    }
+
+    public function filter(array $emails)
+    {
+        return;
+    }
+
+    public function validate(string $email)
+    {
+        return;
+    }
 }

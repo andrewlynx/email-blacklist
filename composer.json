@@ -20,6 +20,9 @@
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
+            "providers": [
+                "Andrewlynx\\EmailBlacklist\\Providers\\EmailBlacklistServiceProvider"
+            ],
             "aliases": {
                 "EmailBlacklist": "Andrewlynx\\EmailBlacklist\\EmailBlacklist"
             }
