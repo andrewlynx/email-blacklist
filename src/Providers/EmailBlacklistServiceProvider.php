@@ -25,11 +25,9 @@ class EmailBlacklistServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind(
-            'Andrewlynx\EmailBlacklist\EmailBlacklist', function ($app) {
-                return new EmailBlacklist();
-            }
-        );
+        $this->app->bind('email_blacklist', function ($app) {
+            return new EmailBlacklist();
+        });
 
         $this->mergeConfigFrom(
             __DIR__ . '/../../config/email_blacklist.php', 'email_blacklist'

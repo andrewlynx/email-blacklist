@@ -2,6 +2,10 @@
 
 namespace Andrewlynx\EmailBlacklist;
 
+use Andrewlynx\EmailBlacklist\Models\EmailBlacklistModel;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Exception\InvalidArgumentException;
+
 /**
  * Description of EmailBlacklist
  *
@@ -9,8 +13,17 @@ namespace Andrewlynx\EmailBlacklist;
  */
 class EmailBlacklist
 {
+    private $model;
+    
+    public function __construct()
+    {
+        $this->model = new EmailBlacklistModel();
+    }
+
+
     public function add(string $email)
     {
+        $this->validate($email);
         return;
     }
 
@@ -21,7 +34,7 @@ class EmailBlacklist
 
     public function all()
     {
-        return;
+        return "works";
     }
 
     public function check(string $email)
@@ -33,9 +46,15 @@ class EmailBlacklist
     {
         return;
     }
-
-    public function validate(string $email)
+    
+    private function validate(string $email)
     {
-        return;
+        $validator = Validator::make(
+            ['email' => $email],
+            ['email' => ['required', 'email']]
+        );
+        if ($validator->fails()) {
+            throw new InvalidArgumentException($validator->messages());
+        }
     }
 }
