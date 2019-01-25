@@ -88,7 +88,7 @@ class EmailBlacklist
      * @throws InvalidArgumentException when validation fails
      * @return void
      */
-    private function validate(string $email)
+    public function validate(string $email)
     {
         $validator = Validator::make(
             ['email' => $email],
