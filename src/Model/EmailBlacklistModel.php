@@ -11,10 +11,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class EmailBlacklistModel extends Model
 {
+    
     protected $fillable = [
         'email',
     ];
     
+    /*
+     * assing table name from config
+     * 
+     * @return void
+     */
     public function __construct()
     {
         $this->table = config('email_blacklist.db_table');
