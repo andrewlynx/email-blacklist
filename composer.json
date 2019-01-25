@@ -27,5 +27,13 @@
                 "EmailBlacklist": "Andrewlynx\\EmailBlacklist\\EmailBlacklist"
             }
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Andrewlynx\\EmailBlacklist\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.0"
     }
 }
