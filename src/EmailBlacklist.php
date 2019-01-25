@@ -20,31 +20,33 @@ class EmailBlacklist
         $this->model = new EmailBlacklistModel();
     }
 
-
     public function add(string $email)
     {
         $this->validate($email);
-        return;
+        $this->model->updateOrCreate(['email' => $email], ['email' => $email]);
     }
 
     public function remove(string $email)
     {
-        return;
+        $this->validate($email);
+        $this->model->where('email', $email)->delete();
     }
 
     public function all()
     {
-        return "works";
+        return $this->model->pluck('email')->toArray();
     }
 
     public function check(string $email)
     {
-        return;
+        $this->validate($email);
+        return $this->model->where('email', $email)->exists();
     }
 
     public function filter(array $emails)
     {
-        return;
+        array_walk($emails, [$this, 'validate']);
+        return array_diff($emails, $this->all());
     }
     
     private function validate(string $email)
